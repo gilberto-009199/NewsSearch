@@ -11,14 +11,12 @@ import retrofit2.http.Query;
 
 public interface ArtigoService{
 
-    String URL_BASE = "http://newsapi.org/v2/";
+    String URL_BASE = "http://news-search-reverso.herokuapp.com/";
 
-    String KEY_ACCESS = "7f60f5dad321471caecb51c22c355513";
+    @GET("/index.php?rota=top-headlines")
+    Call<ApiResponse> getTopArtigos(@Query("sources") String indexNews);
 
-    @GET("/top-headlines")
-    Call<ApiResponse> getTopArtigos(@Query("sources") String indexNews,@Query("apiKey") String key);
-
-    @GET("/everything")
-    Call<ApiResponse> getArtigos(@Query("sources") String indexNews,@Query("apiKey") String key);
+    @GET("/index.php?rota=everything")
+    Call<ApiResponse> getArtigos(@Query("sources") String indexNews);
 
 }
