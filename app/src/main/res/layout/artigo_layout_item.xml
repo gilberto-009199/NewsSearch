@@ -1,19 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Livro novo adicionado"/>
+    android:layout_height="wrap_content"
+    android:background="@drawable/artigo_style">
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Livro novo adicionado"/>
-    <TextView
-        android:id="@+id/txtAutor"
+        android:minHeight="50dp"
+        android:gravity="center"
+        android:maxLength="20"
+        android:textColor="#fff"
+        android:background="@drawable/artigo_style_titulo"
+        android:text="titulo"
+        android:textAlignment="center"
+        android:textSize="22sp"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Livro novo adicionado"/>
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/lnaImag"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imgArtigo"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lnaDescribe"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textAlignment="textEnd"
+                android:id="@+id/txtAutor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12sp"
+                android:text="sadsadasdasdasda"/>
+            <TextView
+                android:id="@+id/txtDescricao"
+                android:textSize="17sp"
+                android:textColor="#000"
+                android:maxLength="232"
+                android:maxLines="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

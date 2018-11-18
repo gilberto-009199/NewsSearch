@@ -11,9 +11,17 @@ public class Artigo {
     private String title;
     private String description;
     private String url;
-    private String urlImage;
+    private String urlToImage;
     private String publishedAt;
     private String content;
+
+    public String getUrlToImage() {
+        return urlToImage;
+    }
+
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
+    }
 
     public Source getSource() {
         return source;
@@ -53,14 +61,6 @@ public class Artigo {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getUrlImage() {
-        return urlImage;
-    }
-
-    public void setUrlImage(String urlImage) {
-        this.urlImage = urlImage;
     }
 
     public String getPublishedAt() {

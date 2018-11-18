@@ -24,4 +24,7 @@ dependencies {
     // biblioteca do RetroFit para conexão com o servidor via http
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    //Biblioteca picaso para tratamento de imagens da internet para com o android
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

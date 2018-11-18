@@ -20,7 +20,7 @@ public class MainPresenter {
         this.mainView = mainView;
     }
     public void getArtigos(){
-        service.getTopArtigos("hacker-news").enqueue(new Callback<ApiResponse>() {
+        service.getArtigos("bbc-news").enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 ApiResponse resposta = response.body();
