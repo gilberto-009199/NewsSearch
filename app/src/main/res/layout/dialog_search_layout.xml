@@ -7,21 +7,43 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#000"
-            android:text="Qual portal? Quer que eu pesquise mestre?"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Em qual portal? Quer que eu pesquise mestre?"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="18sp" />
-
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <Button
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:background="#000"
+                android:textColor="#fff"
+                android:textSize="22sp"
+                android:text="..."
+                />
+        </LinearLayout>
+    </LinearLayout>
         <CheckBox
+            android:background="#6bff76"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="GOOGLE Search"
-            android:textColor="@color/colorAccent"
-            android:textSize="15sp" />
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"/>
     </LinearLayout>
 </LinearLayout>
