@@ -11,7 +11,7 @@
         android:gravity="center"
         android:maxLength="20"
         android:textColor="#fff"
-        android:background="@drawable/artigo_style_titulo"
+        android:background="@color/colorPrimaryDark"
         android:text="titulo"
         android:textAlignment="center"
         android:textSize="22sp"/>
@@ -30,6 +30,7 @@
                 android:id="@+id/imgArtigo"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
+                android:src="#eee"
                 android:layout_height="match_parent"/>
         </LinearLayout>
         <LinearLayout

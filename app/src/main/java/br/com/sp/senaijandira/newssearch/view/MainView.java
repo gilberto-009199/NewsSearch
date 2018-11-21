@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.com.sp.senaijandira.newssearch.services.model.Artigo;
 
-public interface MainView {
+public interface MainView{
 
     void carregarArtigos(List<Artigo> artigos);
 

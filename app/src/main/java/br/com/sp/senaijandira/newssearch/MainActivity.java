@@ -2,11 +2,15 @@ package br.com.sp.senaijandira.newssearch;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
 import br.com.sp.senaijandira.newssearch.adapter.ArtigosAdapter;
+import br.com.sp.senaijandira.newssearch.dialogs.DialogSearch;
 import br.com.sp.senaijandira.newssearch.presenter.MainPresenter;
 import br.com.sp.senaijandira.newssearch.services.ArtigoService;
 import br.com.sp.senaijandira.newssearch.services.ServiceFactory;
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
     private MainPresenter presenter;
     private ListView lstArtigos;
+    private ProgressBar barraProgresso ;
     private ArtigosAdapter adapter;
 
     @Override
@@ -33,14 +38,18 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
         lstArtigos = findViewById(R.id.ltsArtigos);
 
-        adapter = new ArtigosAdapter(this);
+        barraProgresso = findViewById(R.id.progressBar);
 
+        adapter = new ArtigosAdapter(this,barraProgresso);
         lstArtigos.setAdapter(adapter);
-
-
         presenter = new MainPresenter(this,ServiceFactory.createArtigoService());
         presenter.getArtigos();
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -58,5 +67,10 @@ public class MainActivity extends AppCompatActivity implements MainView{
     @Override
     public void clear() {
 
+    }
+
+    public void Search(View view) {
+        DialogSearch dialogo = new DialogSearch(this);
+        dialogo.show();
     }
 }

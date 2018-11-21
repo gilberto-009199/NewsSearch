@@ -20,7 +20,8 @@ public class MainPresenter {
         this.mainView = mainView;
     }
     public void getArtigos(){
-        service.getArtigos("bbc-news").enqueue(new Callback<ApiResponse>() {
+
+        service.getTopArtigos("the-new-york-times").enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 ApiResponse resposta = response.body();
@@ -31,6 +32,7 @@ public class MainPresenter {
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t) {
                 System.out.println("ERRO_CONEXÃO: "+t.getMessage());
+                getArtigos();//Tentando pegar pela segunda vez
             }
         });
     }

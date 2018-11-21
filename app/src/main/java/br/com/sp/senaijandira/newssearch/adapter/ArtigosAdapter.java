@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.squareup.picasso.Picasso;
 
@@ -19,14 +19,19 @@ import br.com.sp.senaijandira.newssearch.viewholder.ArtigoViewItem;
 
 public class ArtigosAdapter extends ArrayAdapter<Artigo> {
 
-    public ArtigosAdapter(Context ctx){
+    private ProgressBar progresso;
+    private Integer espaço;
+
+    public ArtigosAdapter(Context ctx,final ProgressBar progresso){
         super(ctx,0, new ArrayList<Artigo>());
+        this.progresso = progresso;
+        this.espaço = progresso.getMax();
     }
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         View v = convertView;
         ArtigoViewItem holder;
-
+        Artigo artigoTmp = getItem(position);
 
         if(convertView==null){
             v = LayoutInflater.from(getContext()).inflate(R.layout.artigo_layout_item,parent,false);
@@ -37,19 +42,20 @@ public class ArtigosAdapter extends ArrayAdapter<Artigo> {
             holder =  (ArtigoViewItem) v.getTag();
         }
 
-        holder.titulo.setText(getItem(position).getTitle());
-        holder.autor.setText(getItem(position).getAuthor());
-        holder.descricao.setText(getItem(position).getDescription());
+        holder.titulo.setText(artigoTmp.getTitle());
+        holder.autor.setText(artigoTmp.getAuthor());
+        holder.descricao.setText(artigoTmp.getDescription());
 
-        /*if(getItem(position).getUrlToImage()==null){
-            LinearLayout imagem = v.findViewById(R.id.lnaImag);
-            imagem.setVisibility(View.INVISIBLE);
-            LinearLayout linear = v.findViewById(R.id.lnaDescribe);
-            linear.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        }*/
-        Picasso.get().load(getItem(position).getUrlToImage()).resize(240,260).into(holder.imagem);
+        if(artigoTmp.getUrlToImage().length()<1){
+            System.out.println("Noticia sem image!!");
+        }
+        System.out.println("Url: "+artigoTmp.getUrlToImage());
+
+        Picasso.get().load(artigoTmp.getUrlToImage().toString().replace("https://","http://")).resize(240,260).into(holder.imagem);
 
 
+        int progressoPart = (espaço/this.getCount())*1;
+        progresso.setProgress(progresso.getProgress()+progressoPart);
         return v;
     }
 }
