@@ -1,5 +1,6 @@
 package br.com.sp.senaijandira.newssearch.services;
 
+import br.com.sp.senaijandira.newssearch.model.PortaisChecked;
 import br.com.sp.senaijandira.newssearch.services.model.ApiResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,6 +13,8 @@ import retrofit2.http.Query;
 public interface ArtigoService{
 
     String URL_BASE = "http://news-search-reverso.herokuapp.com/";
+
+
 
     @GET("/index.php?rota=top-headlines")
     Call<ApiResponse> getTopArtigos(@Query("sources") String indexNews);

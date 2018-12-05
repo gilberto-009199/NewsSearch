@@ -1,4 +1,4 @@
-package br.com.sp.senaijandira.newssearch;
+package br.com.sp.senaijandira.newssearch.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
+import br.com.sp.senaijandira.newssearch.R;
 import br.com.sp.senaijandira.newssearch.adapter.ArtigosAdapter;
 import br.com.sp.senaijandira.newssearch.dialogs.DialogSearch;
 import br.com.sp.senaijandira.newssearch.presenter.MainPresenter;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainView{
     private ListView lstArtigos;
     private ProgressBar barraProgresso ;
     private ArtigosAdapter adapter;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
